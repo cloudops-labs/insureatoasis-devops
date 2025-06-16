@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insureatoasis-deployment
+  labels:
+    app: insureatoasis
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: insureatoasis
+  template:
+    metadata:
+      labels:
+        app: insureatoasis
+    spec:
+      containers:
+        - name: insureatoasis-app
+          image: 979285759387.dkr.ecr.ap-south-1.amazonaws.com/insureatoasis:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
