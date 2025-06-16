@@ -1,7 +1,9 @@
 output "eks_cluster_name" {
-  value = aws_eks_cluster.k8s_cluster.name
+  description = "The name of the EKS cluster"
+  value       = aws_eks_cluster.demo.name
 }
 
-output "eks_endpoint" {
-  value = aws_eks_cluster.k8s_cluster.endpoint
+output "eks_cluster_endpoint" {
+  description = "The endpoint to access the EKS cluster"
+  value       = aws_eks_cluster.demo.endpoint
 }
